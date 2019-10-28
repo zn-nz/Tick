@@ -40,31 +40,38 @@ class _TaskState extends State<Task> {
                 children: <Widget>[
                   Avatar(),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       IconButton(
+                          padding: EdgeInsets.zero,
+                          alignment: Alignment.topCenter,
                           icon: Icon(
                             Icons.search,
                             color: Colors.white,
                           ),
-                          iconSize: 32.0,
+                          iconSize: 30.0,
                           onPressed: () {
                             print('search');
                           }),
                       IconButton(
+                          padding: EdgeInsets.zero,
+                          alignment: Alignment.topCenter,
                           icon: Icon(
                             Icons.add_alert,
                             color: Colors.white,
                           ),
-                          iconSize: 28.0,
+                          iconSize: 26.0,
                           onPressed: () {
                             print('alarm');
                           }),
                       IconButton(
+                        padding: EdgeInsets.zero,
+                        alignment: Alignment.topCenter,
                         icon: Icon(
                           Icons.settings,
                           color: Colors.white,
                         ),
-                        iconSize: 28.0,
+                        iconSize: 26.0,
                         onPressed: () {
                           print('setting');
                         },

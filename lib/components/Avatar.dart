@@ -9,14 +9,14 @@ class Avatar extends StatelessWidget {
       ClipRRect(
         borderRadius: BorderRadius.circular(40),
         child: Image(
-          width: 80.0,
-          height: 80.0,
+          width: 70.0,
+          height: 70.0,
           image: AssetImage("assets/images/avatar.png"),
           fit: BoxFit.fill,
         ),
       ),
       Container(
-        width: 80.0,
+        width: 70.0,
         alignment: Alignment.topRight,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
