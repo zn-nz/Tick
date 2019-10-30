@@ -12,19 +12,38 @@ class Setting extends StatelessWidget {
       ),
       body: Scrollbar(
         child: ListView(
+          padding: EdgeInsets.only(left: 20.0, right: 20.0),
           children: <Widget>[
             GestureDetector(
               onTap: () {
                 print('单击');
               },
-              onDoubleTap: (){
+              onDoubleTap: () {
                 print('doubletap');
               },
-              child: CircleAvatar(
-                radius: 100.0,
-                backgroundImage: AssetImage("assets/images/avatar.png"),
+              child: ListBody(children: <Widget>[
+                CircleAvatar(
+                  // radius: 100.0,
+                  backgroundImage: AssetImage("assets/images/avatar.png"),
+                ),
+              ]),
+            ),
+            GestureDetector(
+              onTap: () {
+                print('单击');
+              },
+              onDoubleTap: () {
+                print('doubletap');
+              },
+              child: Container(
+                width: 10.0,
+                height: 20.0,
+                child: CircleAvatar(
+                  // radius: 100.0,
+                  backgroundImage: AssetImage("assets/images/avatar.png"),
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),

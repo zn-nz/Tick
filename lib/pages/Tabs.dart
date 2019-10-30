@@ -20,6 +20,7 @@ class _TabsState extends State<Tabs> {
     setState(() {
       _taskTitle = val;
     });
+    Navigator.pop(context);
   }
 
   _openTabsDrawer() {
@@ -35,6 +36,7 @@ class _TabsState extends State<Tabs> {
               'taskTitle': _taskTitle,
             }, openTabsDrawer: () => _openTabsDrawer())
           : _currenIndex == 1 ? Date() : Setting(),
+      drawerEdgeDragWidth: 0.0,
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
