@@ -22,7 +22,7 @@ class _TabsState extends State<Tabs> {
     });
   }
 
-  _editParentText(editText) {
+  _openTabsDrawer() {
     _tabsScaffoldKey.currentState.openDrawer();
   }
 
@@ -32,9 +32,8 @@ class _TabsState extends State<Tabs> {
       key: _tabsScaffoldKey,
       body: _currenIndex == 0
           ? Task(arguments: {
-              'tabsScaffoldKey': _tabsScaffoldKey,
               'taskTitle': _taskTitle,
-            }, editParentText: (editText) => _editParentText(editText))
+            }, openTabsDrawer: () => _openTabsDrawer())
           : _currenIndex == 1 ? Date() : Setting(),
       drawer: Drawer(
         child: ListView(

@@ -2,23 +2,20 @@ import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
   final arguments;
-  final editParentText;
-  const Task({Key key, this.arguments, this.editParentText}) : super(key: key);
+  final openTabsDrawer;
+  const Task({Key key, this.arguments, this.openTabsDrawer}) : super(key: key);
   @override
   _TaskState createState() => _TaskState();
 }
 
 class _TaskState extends State<Task> {
   String _taskTitle = '';
-  GlobalKey _tabsScaffoldKey;
   @override
   void initState() {
     super.initState();
     setState(() {
       _taskTitle = widget.arguments['taskTitle'];
-      _tabsScaffoldKey = widget.arguments['tabsScaffoldKey'];
     });
-    print(widget.arguments);
   }
 
   @override
@@ -39,9 +36,7 @@ class _TaskState extends State<Task> {
           builder: (BuildContext context) => IconButton(
             icon: Icon(Icons.menu),
             onPressed: () {
-              widget.tabsScaffoldKey;
-              // print(_tabsScaffoldKey);
-              // _tabsScaffoldKey.currentState.openDrawer();
+              widget.openTabsDrawer();
             },
           ),
         ),
