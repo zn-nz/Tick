@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tick/components/Avatar.dart';
 
 class Setting extends StatelessWidget {
   const Setting({Key key}) : super(key: key);
@@ -14,23 +13,18 @@ class Setting extends StatelessWidget {
       body: Scrollbar(
         child: ListView(
           children: <Widget>[
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
-            Avatar(),
+            GestureDetector(
+              onTap: () {
+                print('单击');
+              },
+              onDoubleTap: (){
+                print('doubletap');
+              },
+              child: CircleAvatar(
+                radius: 100.0,
+                backgroundImage: AssetImage("assets/images/avatar.png"),
+              ),
+            )
           ],
         ),
       ),
