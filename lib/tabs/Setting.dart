@@ -14,13 +14,27 @@ class Setting extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.only(left: 20.0, right: 20.0),
           children: <Widget>[
-            ListTile(
-              title: Image.asset(
-                "assets/images/avatar.png",
-                width: 60.0,
-                height: 60.0,
-                alignment: Alignment.centerLeft,
-              ),
+            Container(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.asset(
+                        "assets/images/avatar.png",
+                        width: 60.0,
+                        height: 60.0,
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.asset(
+                        "assets/images/avatar.png",
+                        width: 60.0,
+                        height: 60.0,
+                      ),
+                    )
+                  ]),
             ),
           ],
         ),
