@@ -16,9 +16,9 @@ final GlobalKey<ScaffoldState> _tabsScaffoldKey =
 class _TabsState extends State<Tabs> {
   int _currenIndex = 0;
   String _taskTitle = '今天';
-  _groupTitleChange(String val) {
+  _groupTitleChange([String val]) {
     setState(() {
-      _taskTitle = val;
+      _taskTitle = val ?? _taskTitle;
     });
     Navigator.pop(context);
   }
@@ -102,19 +102,29 @@ class _TabsState extends State<Tabs> {
               accountEmail: null,
               accountName: null,
             ),
-            RadioListTile(
-              groupValue: _taskTitle,
-              value: '今天',
-              title: Text('今天'),
-              activeColor: Colors.red,
-              onChanged: _groupTitleChange,
+            GestureDetector(
+              onTap: () {
+                _groupTitleChange();
+              },
+              child: RadioListTile(
+                groupValue: _taskTitle,
+                value: '今天',
+                title: Text('今天'),
+                activeColor: Colors.red,
+                onChanged: _groupTitleChange,
+              ),
             ),
-            RadioListTile(
-              groupValue: _taskTitle,
-              value: '收集箱',
-              title: Text('收集箱'),
-              activeColor: Colors.red,
-              onChanged: _groupTitleChange,
+            GestureDetector(
+              onTap: () {
+                _groupTitleChange();
+              },
+              child: RadioListTile(
+                groupValue: _taskTitle,
+                value: '收集箱',
+                title: Text('收集箱'),
+                activeColor: Colors.red,
+                onChanged: _groupTitleChange,
+              ),
             ),
           ],
         ),
