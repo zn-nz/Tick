@@ -10,6 +10,18 @@ class Task extends StatefulWidget {
 
 class _TaskState extends State<Task> {
   String _taskTitle = '';
+  List _list = [
+    {
+      'title': '一',
+      'subtitle': '1',
+      'checked': false,
+    },
+    {
+      'title': '二',
+      'subtitle': '2',
+      'checked': false,
+    }
+  ];
   @override
   void initState() {
     super.initState();
@@ -41,11 +53,38 @@ class _TaskState extends State<Task> {
           ),
         ),
       ),
-      body: Center(),
+      body: _bodyBusy(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          print('点击了浮动按钮');
+        },
         child: Icon(Icons.add),
       ),
+    );
+  }
+
+  _bodyClear() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('今天没有任务', style: TextStyle(fontSize: 20.0)),
+          Text('祝你度过宁静的夜晚时光', style: TextStyle(color: Colors.grey))
+        ],
+      ),
+    );
+  }
+
+  _bodyBusy() {
+    return ListView(
+      children: _list.map((i) {
+        return CheckboxListTile(
+          value: i['checked'],
+          onChanged: (e) {},
+          subtitle: Text(i['subtitle']),
+          title: Text(i['title']),
+        );
+      }).toList(),
     );
   }
 }

@@ -30,23 +30,26 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: routesConfig.onGenerateRoute,
       theme: ThemeData(
+        textTheme: TextTheme(
+          title: TextStyle(color: Colors.black),
+        ),
         primaryColor: _appTheme.styleColor,
-        // scaffoldBackgroundColor: Colors.white,
-        // primaryColorBrightness: Brightness.light,
-        // toggleableActiveColor: _appTheme.styleColor,
-        // floatingActionButtonTheme: FloatingActionButtonThemeData(
-        //     backgroundColor: _appTheme.styleColor),
+        scaffoldBackgroundColor: Colors.white,
+        primaryColorBrightness: Brightness.light,
+        toggleableActiveColor: _appTheme.styleColor,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: _appTheme.styleColor),
         appBarTheme: AppBarTheme(
           elevation: 0,
-          //   iconTheme: IconThemeData(
-          //     color: Colors.black,
-          //   ),
-          //   textTheme: TextTheme(
-          //     title: TextStyle(
-          //       color: Colors.black,
-          //       fontSize: 18.0,
-          //     ),
-          //   ),
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+          textTheme: TextTheme(
+            title: TextStyle(
+              color: Colors.black,
+              fontSize: 18.0,
+            ),
+          ),
         ),
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),

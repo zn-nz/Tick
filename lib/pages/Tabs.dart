@@ -59,7 +59,7 @@ class _TabsState extends State<Tabs> {
                     padding: EdgeInsets.zero,
                     alignment: Alignment.topCenter,
                     icon: Icon(
-                      Icons.add_alert,
+                      Icons.notifications,
                       color: Colors.white,
                     ),
                     iconSize: 26.0,
