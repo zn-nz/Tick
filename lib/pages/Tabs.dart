@@ -36,7 +36,7 @@ class _TabsState extends State<Tabs> {
               'taskTitle': _taskTitle,
             }, openTabsDrawer: () => _openTabsDrawer())
           : _currenIndex == 1 ? Date() : Setting(),
-      drawerEdgeDragWidth: 0.0,
+      drawerEdgeDragWidth: _currenIndex == 0 ? 20.0 : 0.0,
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
