@@ -41,6 +41,11 @@ class _TaskState extends State<Task> {
           ),
         ),
       ),
+      body: Center(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
