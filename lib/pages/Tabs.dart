@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tick/tabs/Date.dart';
 import 'package:tick/tabs/Task.dart';
 import 'package:tick/tabs/Setting.dart';
+import 'package:tick/store/AppTheme.dart';
 
 class Tabs extends StatefulWidget {
   Tabs({Key key}) : super(key: key);
@@ -29,6 +31,7 @@ class _TabsState extends State<Tabs> {
 
   @override
   Widget build(BuildContext context) {
+    final _appTheme = Provider.of<AppTheme>(context);
     return Scaffold(
       key: _tabsScaffoldKey,
       body: _currenIndex == 0
@@ -45,27 +48,26 @@ class _TabsState extends State<Tabs> {
               margin: EdgeInsets.zero,
               otherAccountsPictures: <Widget>[
                 IconButton(
-                    padding: EdgeInsets.zero,
-                    alignment: Alignment.topCenter,
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    ),
-                    iconSize: 30.0,
-                    onPressed: () {
-                      print('search');
-                    }),
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.topCenter,
+                  icon: Icon(
+                    Icons.search,
+                    color: Colors.white,
+                  ),
+                  iconSize: 30.0,
+                  onPressed: () => Navigator.pushNamed(context, '/search'),
+                ),
                 IconButton(
-                    padding: EdgeInsets.zero,
-                    alignment: Alignment.topCenter,
-                    icon: Icon(
-                      Icons.notifications,
-                      color: Colors.white,
-                    ),
-                    iconSize: 26.0,
-                    onPressed: () {
-                      print('alarm');
-                    }),
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.topCenter,
+                  icon: Icon(
+                    Icons.notifications,
+                    color: Colors.white,
+                  ),
+                  iconSize: 26.0,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, '/notifications'),
+                ),
                 IconButton(
                   padding: EdgeInsets.zero,
                   alignment: Alignment.topCenter,
@@ -74,9 +76,7 @@ class _TabsState extends State<Tabs> {
                     color: Colors.white,
                   ),
                   iconSize: 26.0,
-                  onPressed: () {
-                    print('setting');
-                  },
+                  onPressed: () => Navigator.pushNamed(context, '/setting'),
                 ),
               ],
               currentAccountPicture: GestureDetector(
@@ -128,6 +128,7 @@ class _TabsState extends State<Tabs> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: _appTheme.styleColor,
         currentIndex: _currenIndex,
         onTap: (int index) {
           setState(() {

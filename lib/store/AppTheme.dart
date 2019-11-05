@@ -7,4 +7,11 @@ class AppTheme with ChangeNotifier {
     _styleColor = val;
     notifyListeners();
   }
+
+  Color _appBarStyle = Colors.white;
+  Color get appBarStyle => _appBarStyle;
+  set appBarStyle(Color val) {
+    _appBarStyle = val;
+    notifyListeners();
+  }
 }

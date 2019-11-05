@@ -12,7 +12,7 @@ void main() {
     providers: appStore,
     child: MyApp(),
   ));
-  // 透明状态栏
+  // 透明沉浸状态栏，写在渲染之后
   if (Platform.isAndroid) {
     SystemUiOverlayStyle systemUiOverlayStyle =
         SystemUiOverlayStyle(statusBarColor: Colors.transparent);

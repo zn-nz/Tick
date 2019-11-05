@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tick/store/AppTheme.dart';
 
 class Task extends StatefulWidget {
   final arguments;
@@ -22,6 +24,13 @@ class _TaskState extends State<Task> {
       'checked': false,
     }
   ];
+
+  _listChanged(int i) {
+    setState(() {
+      _list[i]['checked'] = !_list[i]['checked'];
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -40,9 +49,10 @@ class _TaskState extends State<Task> {
 
   @override
   Widget build(BuildContext context) {
+    final _appTheme = Provider.of<AppTheme>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: _appTheme.appBarStyle,
         title: Text(_taskTitle),
         leading: Builder(
           builder: (BuildContext context) => IconButton(
@@ -53,10 +63,13 @@ class _TaskState extends State<Task> {
           ),
         ),
       ),
-      body: _bodyBusy(),
+      body: _list.isEmpty ? _bodyClear() : _bodyBusy(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('点击了浮动按钮');
+          _list.asMap().keys.forEach((int i) {
+            print(i);
+          });
         },
         child: Icon(Icons.add),
       ),
@@ -77,12 +90,23 @@ class _TaskState extends State<Task> {
 
   _bodyBusy() {
     return ListView(
-      children: _list.map((i) {
+      children: _list.asMap().keys.map((i) {
+        final _textStyle =
+            TextStyle(color: _list[i]['checked'] ? Colors.grey : Colors.black);
         return CheckboxListTile(
-          value: i['checked'],
-          onChanged: (e) {},
-          subtitle: Text(i['subtitle']),
-          title: Text(i['title']),
+          activeColor: Colors.grey,
+          value: _list[i]['checked'],
+          onChanged: (e) {
+            _listChanged(i);
+          },
+          subtitle: Text(
+            _list[i]['subtitle'],
+            style: _textStyle,
+          ),
+          title: Text(
+            _list[i]['title'],
+            style: _textStyle,
+          ),
         );
       }).toList(),
     );
