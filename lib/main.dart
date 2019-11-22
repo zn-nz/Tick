@@ -1,11 +1,22 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:tick/router/index.dart' as routesConfig;
 import 'package:tick/store/AppTheme.dart';
 import 'package:tick/store/index.dart';
+
+// // 必须是顶层函数
+_parseAndDecode(String response) {
+  return jsonDecode(response);
+}
+
+parseJson(String text) {
+  return compute(_parseAndDecode, text);
+}
 
 void main() {
   runApp(MultiProvider(

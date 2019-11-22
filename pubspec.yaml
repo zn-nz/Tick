@@ -26,6 +26,7 @@ dependencies:
   provider: ^2.0.1
   dio: ^3.0.0
   dio_cookie_manager: ^1.0.0
+  tip_dialog: ^2.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

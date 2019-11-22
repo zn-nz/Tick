@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tick/store/AppTheme.dart';
@@ -29,6 +30,26 @@ class _TaskState extends State<Task> {
     setState(() {
       _list[i]['checked'] = !_list[i]['checked'];
     });
+  }
+
+  _getText() async {
+    Dio _dio = new Dio();
+    _dio.interceptors
+        .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
+      print(options.path);
+      options.path = 'https://api.github.com/users/nanmucoffin';
+      print(options.path);
+      return options;
+    }, onResponse: (Response response) {
+      // 在返回响应数据之前做一些预处理
+      // return response; // continue
+    }, onError: (DioError e) {
+      // 当请求失败时做一些预处理
+      return e; //continue
+    }));
+    Response response =
+        await _dio.get("https://api.github.com/users/lay-coder");
+    print(response);
   }
 
   @override
@@ -67,9 +88,7 @@ class _TaskState extends State<Task> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('点击了浮动按钮');
-          _list.asMap().keys.forEach((int i) {
-            print(i);
-          });
+          _getText();
         },
         child: Icon(Icons.add),
       ),
