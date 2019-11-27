@@ -45,6 +45,7 @@ class _TaskState extends State<Task> {
       // return response; // continue
     }, onError: (DioError e) {
       // 当请求失败时做一些预处理
+      print(e);
       return e; //continue
     }));
     Response response =
